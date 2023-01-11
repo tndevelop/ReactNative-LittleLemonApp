@@ -12,10 +12,8 @@ export default function LittleLemonFooter() {
 }
 
 const styles = StyleSheet.create({
-  bg: { backgroundColor: '#EE9972', position: 'absolute', bottom: 0 },
+  bg: { backgroundColor: '#EE9972', position: 'absolute', bottom: 0, width:'100%', height:'3%' },
   copyright: {
-    paddingHorizontal: 60,
-    paddingVertical: 20,
     fontSize: 15,
     color: 'black',
     textAlign: 'center',
