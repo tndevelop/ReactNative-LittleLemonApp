@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View, KeyboardAvoidingView, ScrollView, Text, StyleSheet, TextInput, Platform } from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView, Text, StyleSheet, Platform, Image } from 'react-native';
 
 
 
@@ -8,30 +8,34 @@ export default function WelcomeScreen() {
   
     {/*<KeyboardAvoidingView style={{ flex:0.82 }} {Platform.OS === 'ios'? 'padding' : 'position'}>*/}
   return (
-    <View  style={{ flex:0.82 }}>
         <ScrollView indicatorStyle={'white'} style={styles.scroll} keyboardDismissMode='on-drag'>
-        <Text
-            style={styles.welcome}>
-            Welcome to Little Lemon
-        </Text>
-        <Text style={styles.text}>
-        Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
-        </Text>
-        <TextInput style={styles.input} onChangeText={onChangeFirstName} value={firstName} placeholder='First name'></TextInput>
+            <View style={styles.imageAndCaption}>
+                <Image style={styles.image}  source={require("../img/logo.png")} accessible={true} accessibilityLabel='little lemon logo' />
+                <Text style={styles.welcome}>Little Lemon</Text>
+            </View>
+            <Text style={styles.text}>
+            Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
+            </Text>
+            
         </ScrollView>
-    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
+    image:{height:100, width:100, borderRadius:20, resizeMode:'cover'},
     scroll: {
-        backgroundColor: '#333333'
+        backgroundColor: '#333333',
+        display:'flex',
+        flex:1
     },
+    
+    imageAndCaption:{margin: 10, justifyContent:'center',  flexDirection:'row'},
+
     welcome: {
-        paddingTop: 40,
+        paddingTop:20,
         paddingBottom:40,
-        marginTop:10,
+        paddingLeft:20,
         fontSize: 40,
         color: '#EDEFEE',
         textAlign: 'center',

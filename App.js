@@ -9,6 +9,7 @@ import LoginScreen from './components/LoginScreen';
 export default function App() {
   return (
     <>
+    {/*
       <View style={styles.container}>
         <LittleLemonHeader />
         <LoginScreen />
@@ -16,7 +17,7 @@ export default function App() {
       <View style={styles.footerContainer}>
         <LittleLemonFooter />
       </View>
-      {/*
+  */}    
     <View
       style={{
         flex: 1,
@@ -26,7 +27,7 @@ export default function App() {
       <WelcomeScreen/>
       <LittleLemonFooter />
     </View>
-  */}
+  
     </>
     
     
