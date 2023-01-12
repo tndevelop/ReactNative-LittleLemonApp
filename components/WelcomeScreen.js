@@ -1,85 +1,42 @@
-import { View, Text, StyleSheet, SectionList } from 'react-native';
-
-const menuItemsToDisplay = [
-  {
-    title: 'Appetizers',
-    data: [
-      { name: 'Hummus', price: '$5.00' },
-      { name: 'Moutabal', price: '$5.00' },
-      { name: 'Falafel', price: '$7.50' },
-      { name: 'Marinated Olives', price: '$5.00' },
-      { name: 'Kofta', price: '$5.00' },
-      { name: 'Eggplant Salad', price: '$8.50' },
-    ],
-  },
-  {
-    title: 'Main Dishes',
-    data: [
-      { name: 'Lentil Burger', price: '$10.00' },
-      { name: 'Smoked Salmon', price: '$14.00' },
-      { name: 'Kofta Burger', price: '$11.00' },
-      { name: 'Turkish Kebab', price: '$15.50' },
-    ],
-  },
-  {
-    title: 'Sides',
-    data: [
-      { name: 'Fries', price: '$3.00', id: '11K' },
-      { name: 'Buttered Rice', price: '$3.00' },
-      { name: 'Bread Sticks', price: '$3.00' },
-      { name: 'Pita Pocket', price: '$3.00' },
-      { name: 'Lentil Soup', price: '$3.75' },
-      { name: 'Greek Salad', price: '$6.00' },
-      { name: 'Rice Pilaf', price: '$4.00' },
-    ],
-  },
-  {
-    title: 'Desserts',
-    data: [
-      { name: 'Baklava', price: '$3.00' },
-      { name: 'Tartufo', price: '$3.00' },
-      { name: 'Tiramisu', price: '$5.00' },
-      { name: 'Panna Cotta', price: '$5.00' },
-    ],
-  },
-];
-
-const Item = ({name, price}) => (<View style={styles.item}>
-  
-    <Text style={styles.text}>
-        {name}       
-    </Text>
-    <Text style={styles.text}>{price}</Text>
-  
-</View>);
+import React, {useState} from 'react'
+import { View, KeyboardAvoidingView, ScrollView, Text, StyleSheet, TextInput, Platform } from 'react-native';
 
 
-const Separator = () => <View style={styles.separator}></View>
 
 export default function WelcomeScreen() {
-
-  const renderItem = ({item}) => <Item name={item.name} price={item.price}/>
-  const renderSectionHeader = ({section:{title}}) => <View><Text style={styles.header}> {title}</Text></View>
+  const [firstName, onChangeFirstName] = useState('');
+  
+    {/*<KeyboardAvoidingView style={{ flex:0.82 }} {Platform.OS === 'ios'? 'padding' : 'position'}>*/}
   return (
-    <View style={{ flex:0.82 }}>
-      <SectionList 
-        sections={menuItemsToDisplay} 
-        keyExtractor={(index,it) => it+index} 
-        renderItem = {renderItem} 
-        renderSectionHeader={renderSectionHeader}
-        ItemSeparatorComponent={Separator}
-      > 
-
-      </SectionList>
+    <View  style={{ flex:0.82 }}>
+        <ScrollView indicatorStyle={'white'} style={styles.scroll} keyboardDismissMode='on-drag'>
+        <Text
+            style={styles.welcome}>
+            Welcome to Little Lemon
+        </Text>
+        <Text style={styles.text}>
+        Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
+        </Text>
+        <TextInput style={styles.input} onChangeText={onChangeFirstName} value={firstName} placeholder='First name'></TextInput>
+        </ScrollView>
     </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  
-    text:{fontSize:20, color: '#F4CE14'},
-    item:{flexDirection: 'row', justifyContent: 'space-between', paddingVertical:20, paddingHorizontal:40},
-    header: { flex: 0.15, backgroundColor: '#F4CE14', fontSize: 30, textAlign: 'center', flexWrap:'wrap'},
-    separator: {borderBottomWidth: 1, borderColor: '#EDEFEE',}
+    scroll: {
+        backgroundColor: '#333333'
+    },
+    welcome: {
+        paddingTop: 40,
+        paddingBottom:40,
+        marginTop:10,
+        fontSize: 40,
+        color: '#EDEFEE',
+        textAlign: 'center',
+
+      },
+    text:{paddingTop: 30, paddingBottom:40, fontSize:30, textAlign:'center', marginHorizontal:30, color:'#EDEFEE'},
+    input:{backgroundColor:'#EDEFEE', borderColor:'#EDEFEE', borderWidth:1, marginHorizontal:30, fontSize:25, marginTop:20, marginBottom:150 }
 })
