@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { View, KeyboardAvoidingView, ScrollView, Text, StyleSheet, Platform, Image, useColorScheme } from 'react-native';
 
+
 const lightColor = '#EDEFEE'
 const darkColor = '#333333'
 
