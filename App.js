@@ -4,66 +4,35 @@ import LittleLemonFooter from './components/LittleLemonFooter';
 import Menu from './components/Menu';
 import WelcomeScreen from './components/WelcomeScreen';
 import LoginScreen from './components/LoginScreen';
-//import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { BottomTabBarHeightContext, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import { BottomTabBarHeightContext, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
 
 
-//const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+//const Tab = createBottomTabNavigator();
+//const Drawer = createDrawerNavigator();
+
+
 
 
 export default function App() {
   return (
     
     <NavigationContainer>
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#495E57',
-      }}>
-      <LittleLemonHeader />
-      <Tab.Navigator initialRouteName="Login"
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === 'Welcome') {
-            iconName = focused
-              ? 'home'
-              : 'home-outline';
-          } else if (route.name === 'Menu') {
-            iconName =  'ios-list';
-          }else if (route.name === 'Login'){
-            iconName = focused ? 'log-in' : 'log-in-outline'
-          }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
-      })}>
-        {/*screenOptions={({route}) => ({
-            tabBarIcon: ({focused, color, size}) => {
-              let iconName;
-              if(route.name === 'Login'){
-                iconName == focused ? 'home' : 'home-outline'
-              }
-              return <Ionicons name={iconName} size={size} color={color} />
-            },
-            tabBarActiveTintColor: 'tomato',
-            tabBarInactiveTintColor: 'gray',
-          })
-        }>*/}
-        <Tab.Screen name="Login" component={LoginScreen} />
-        <Tab.Screen name ="Menu" component={Menu} options={{ title: 'Menu' }}/>
-        <Tab.Screen name="Welcome" component={WelcomeScreen} />
-        
-      </Tab.Navigator>
-      </View>
-      <View style={styles.footerContainer}>
-        <LittleLemonFooter />
-      </View>
-    </NavigationContainer>
+        <View style={styles.container}>
+          <LittleLemonHeader />
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+          </Stack.Navigator>
+        </View>
+        <View style={styles.footerContainer}>
+          <LittleLemonFooter />
+        </View>
+      </NavigationContainer>
     
   );
 }
