@@ -54,9 +54,10 @@ export default function App() {
             tabBarInactiveTintColor: 'gray',
           })
         }>*/}
+        <Tab.Screen name="Login" component={LoginScreen} />
         <Tab.Screen name ="Menu" component={Menu} options={{ title: 'Menu' }}/>
         <Tab.Screen name="Welcome" component={WelcomeScreen} />
-        <Tab.Screen name="Login" component={LoginScreen} />
+        
       </Tab.Navigator>
       </View>
       <View style={styles.footerContainer}>
