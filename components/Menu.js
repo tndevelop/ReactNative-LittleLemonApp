@@ -4,7 +4,7 @@ const menuItemsToDisplay = [
   {
     title: 'Appetizers',
     data: [
-      { name: 'Murder', price: '$5.00' },
+      { name: 'Hummus', price: '$5.00' },
       { name: 'Moutabal', price: '$5.00' },
       { name: 'Falafel', price: '$7.50' },
       { name: 'Marinated Olives', price: '$5.00' },
@@ -61,7 +61,7 @@ export default function Menu() {
   const renderItem = ({item}) => <Item name={item.name} price={item.price}/>
   const renderSectionHeader = ({section:{title}}) => <View><Text style={styles.header}> {title}</Text></View>
   return (
-    <View style={{ flex:0.82 }}>
+    <View style={{ flex:0.98 }}>
       <SectionList 
         sections={menuItemsToDisplay} 
         keyExtractor={(index,it) => it+index} 
@@ -78,7 +78,7 @@ export default function Menu() {
 
 const styles = StyleSheet.create({
   
-    text:{fontSize:20, color: '#F4CE14'},
+    text:{fontSize:20, color: '#DDB912'},
     item:{flexDirection: 'row', justifyContent: 'space-between', paddingVertical:20, paddingHorizontal:40},
     header: { flex: 0.15, backgroundColor: '#F4CE14', fontSize: 30, textAlign: 'center', flexWrap:'wrap'},
     separator: {borderBottomWidth: 1, borderColor: '#EDEFEE',}

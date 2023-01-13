@@ -47,22 +47,19 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 25,
     },
-  input:{backgroundColor:'#EDEFEE', borderColor:'#EDEFEE', borderWidth:1, marginHorizontal:30, fontSize:25, marginTop:20 },
+    input:{backgroundColor:'white', borderColor:'white', borderWidth:1, marginHorizontal:30, fontSize:25, marginTop:20, color:'#EDEFEE' },
   container: {
     flex: 1,
-    backgroundColor: '#333333'
   },
   headerText: {
     padding: 40,
     fontSize: 30,
-    color: '#EDEFEE',
     textAlign: 'center',
   },
   regularText: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: '#EDEFEE',
     textAlign: 'center',
   },
 });
